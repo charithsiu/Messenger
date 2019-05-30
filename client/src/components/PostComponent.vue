@@ -2,7 +2,7 @@
   <div class="container">
     <h1>Latest Posts</h1>
     <div class="create-post">
-      <label for="create-post">Enter information</label>
+      <label for="create-post">Enter information :</label>
       <input type="text" id="create-post" v-model="text" placeholder="Create a post">
       <button v-on:click="createPost">Post!</button>
 
@@ -18,10 +18,12 @@
         v-bind:key="post._id"
         v-on:dblclick="deletePost(post._id)"
       >
-      {{`${post.createdAt.getDate()}/${post.createdAt.getMonth()}/${post.createdAt.getFullYear()}`}}
+      {{`${post.createdAt.getMonth()+1}/${post.createdAt.getDate()}/${post.createdAt.getFullYear()}`}}
       <p class="text">{{post.text}}</p>
       </div>
     </div>
+    <hr>
+    <div><p>To Delete a post Double Click on the post </p> </div>
   </div>
 </template>
 
@@ -71,8 +73,8 @@ div.container{
   }
   div.post{
     position: relative;
-    border: 1px solid #5bd658;
-    background-color: #bcffb8;
+    border: 1px solid #0f88ad;
+    background-color: #6edbfc;
     padding: 10px 10px 30px 10px;
     margin-bottom: 15px;
   }
