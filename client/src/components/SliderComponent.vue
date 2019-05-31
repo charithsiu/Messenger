@@ -1,56 +1,74 @@
 <template>
-  <div class="container">
-    <h1>Slider</h1>
-    </div>
+  <div id="app">
+    <b-carousel
+      height="300px"
+      id="carousel-1"
+      v-model="slide"
+      :interval="4000"
+      controls
+      indicators
+      background="#ababab"
+      img-width="512"
+      img-height="240"
+      style="text-shadow: 1px 1px 2px #333;"
+      @sliding-start="onSlideStart"
+      @sliding-end="onSlideEnd"
+    >
+      <!-- Text slides with image -->
+      <b-carousel-slide
+        caption="First slide"
+        text="Nulla vitae elit libero, a pharetra augue mollis interdum."
+        img-src="https://picsum.photos/512/240/?image=1"
+      ></b-carousel-slide>
+
+      <!-- Slides with custom text -->
+      <b-carousel-slide img-src="https://picsum.photos/512/240/?image=0">
+        <h1>Can add text here!!!</h1>
+      </b-carousel-slide>
+
+      <!-- Slides with image only -->
+      <b-carousel-slide img-src="https://picsum.photos/512/240/?image=1029"></b-carousel-slide>
+
+      <!-- Slides with img slot -->
+      <!-- Note the classes .d-block and .img-fluid to prevent browser default image alignment -->
+      <b-carousel-slide>
+        <img
+          slot="img"
+          class="d-block img-fluid w-100"
+          src="https://picsum.photos/512/240/?image=1067"
+          alt="image slot"
+        >
+      </b-carousel-slide>
+
+    </b-carousel>
+  </div>
 </template>
 
 <script>
-
-export default {
-  name: 'SliderComponent',
-  
-  data(){
-    return {
-      posts :[],
-      error: '',
-      text: ''
+  export default {
+    data() {
+      return {
+        slide: 0,
+        sliding: null
+      }
+    },
+    methods: {
+      /*onSlideStart() {
+        this.sliding = true
+      },
+      onSlideEnd() {
+        this.sliding = false
+      }*/
     }
   }
-}
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-div.container{
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  p.error{
-    border: 1px solid #ff5b5f;
-    background-color: #ffc5c1;
-    padding: 10px;
-    margin-bottom: 15px;
-  }
-  div.post{
-    position: relative;
-    border: 1px solid #0f88ad;
-    background-color: #6edbfc;
-    padding: 10px 10px 30px 10px;
-    margin-bottom: 15px;
-  }
-  div.created-at{
-    position:absolute;
-    top: 0;
-    left: 0;
-    padding: 5px 15px 5px 15px;
-    background-color: darkgreen;
-    color: white;
-    font-size: 13px;
-  }
-  p.text{
-    font-size: 22px;
-    font-weight: 700;
-    margin-bottom: 0;
-  }
+<style>
+.carousel-inner{
+  width:100%;
+  max-height: 600px !important ;
+}
+#app {
+  padding: 20px;
+}
 
 </style>

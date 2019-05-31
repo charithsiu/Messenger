@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <img alt="Vue logo" src="../assets/SIH_logo.png">
     <h1>Latest Posts</h1>
     <div class="create-post">
       <label for="create-post">Enter information :</label>
