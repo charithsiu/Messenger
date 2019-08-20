@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import PostComponent from '@/components/PostComponent'
 import SliderComponent from '@/components/SliderComponent'
+import ContactComponent from '@/components/ContactComponent'
 import Carousel from 'bootstrap-vue/es/components/carousel'
 Vue.use(Carousel)
 
@@ -18,6 +19,11 @@ export default new Router({
       path: '/imageSlider',
       name: 'SliderComponent',
       component: SliderComponent
+    },
+    {
+      path: '/ContactUS',
+      name: 'ContactComponent',
+      component: ContactComponent
     }
   ]
 })

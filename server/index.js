@@ -8,8 +8,10 @@ app.use(bodyParser.json());
 app.use(cors());
 
 const posts = require('./routes/api/posts');
+const contactus = require('./routes/api/contactus');
 
 app.use('/api/posts',posts);
+app.use('/api/contactus',contactus);
 
 // production
 if(process.env.NODE_ENV === 'production'){
